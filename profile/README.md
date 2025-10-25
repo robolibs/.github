@@ -1,6 +1,6 @@
-## onlyhead
+## robolibs
 
 <p align="center">
-  <img src="logo.png" alt="smolfetch" width="200"/>
+  <img src="logo.png" alt="robolibs" width="200"/>
 </p>  
 </p>
