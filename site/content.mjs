@@ -3,6 +3,8 @@
 // One file so the shape of the whole thing is readable at once. `at` is where a page is written,
 // `nav` is what the sidebar calls it, and `body` is everything under the lede.
 
+import { graphSvg } from "./graph.mjs";
+
 export const SECTIONS = [
   { key: "home", name: "overview", home: "index.html" },
   { key: "crates", name: "crates", home: "crates/index.html" },
@@ -235,13 +237,18 @@ ${rows.map((r) => `          <tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`
         </tbody>
       </table></div>`;
 
+  const diagram = `      <div class="diagram">
+        <header><span>dependency graph</span><span>an arrow points at what's depended on</span></header>
+        <div class="body">${graphSvg()}</div>
+      </div>`;
+
   PAGES.push({
     at: "crates/index.html",
     section: "crates",
     nav: "every crate",
     title: "Every crate",
     blurb: "What each one does, and which of the others it builds on.",
-    body: table,
+    body: diagram + "\n" + table,
   });
 
   for (const name of names) {
