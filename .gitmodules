@@ -1,0 +1,72 @@
+[submodule "agentio"]
+	path = agentio
+	url = git@github.com:robolibs/agentio.git
+	branch = develop
+[submodule "gearbox"]
+	path = gearbox
+	url = git@github.com:robolibs/gearbox.git
+	branch = develop
+[submodule "machbus"]
+	path = machbus
+	url = git@github.com:robolibs/machbus.git
+	branch = develop
+[submodule "peerbus"]
+	path = peerbus
+	url = git@github.com:robolibs/peerbus.git
+	branch = develop
+[submodule "tagdata"]
+	path = tagdata
+	url = git@github.com:robolibs/tagdata.git
+	branch = develop
+[submodule "authbox"]
+	path = authbox
+	url = git@github.com:robolibs/authbox.git
+	branch = develop
+[submodule "concord"]
+	path = concord
+	url = git@github.com:robolibs/concord.git
+	branch = develop
+[submodule "datapod"]
+	path = datapod
+	url = git@github.com:robolibs/datapod.git
+	branch = develop
+[submodule "coreviz"]
+	path = coreviz
+	url = ssh://git@codeberg.org/robolibs/roboviz.git
+	branch = develop
+[submodule "graphix"]
+	path = graphix
+	url = git@github.com:robolibs/graphix.git
+	branch = develop
+[submodule "keylock"]
+	path = keylock
+	url = git@github.com:robolibs/keylock.git
+	branch = develop
+[submodule "maptrax"]
+	path = maptrax
+	url = git@github.com:robolibs/maptrax.git
+	branch = develop
+[submodule "ondrive"]
+	path = ondrive
+	url = git@github.com:robolibs/ondrive.git
+	branch = develop
+[submodule "rastera"]
+	path = rastera
+	url = git@github.com:robolibs/rastera.git
+	branch = develop
+[submodule "stateup"]
+	path = stateup
+	url = git@github.com:robolibs/stateup.git
+	branch = main
+[submodule "syncbot"]
+	path = syncbot
+	url = git@github.com:robolibs/syncbot.git
+	branch = develop
+[submodule "vectory"]
+	path = vectory
+	url = git@github.com:robolibs/vectory.git
+	branch = develop
+[submodule "wirebit"]
+	path = wirebit
+	url = git@github.com:robolibs/wirebit.git
+	branch = main
