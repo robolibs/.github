@@ -70,3 +70,7 @@
 	path = wirebit
 	url = git@github.com:robolibs/wirebit.git
 	branch = main
+[submodule "zoneout"]
+	path = zoneout
+	url = git@github.com:robolibs/zoneout.git
+	branch = develop
