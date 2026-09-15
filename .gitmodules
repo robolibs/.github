@@ -30,10 +30,6 @@
 	path = datapod
 	url = git@github.com:robolibs/datapod.git
 	branch = develop
-[submodule "coreviz"]
-	path = coreviz
-	url = ssh://git@codeberg.org/robolibs/roboviz.git
-	branch = develop
 [submodule "graphix"]
 	path = graphix
 	url = git@github.com:robolibs/graphix.git
