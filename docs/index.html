@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eighteen crates, one convention — robolibs</title>
-<meta name="description" content="robolibs is a set of independently-versioned Rust robotics crates — each its own repository, each usable alone, wired together here as git submodules for the ones building on each other.">
+<title>Eighteen Rust crates for robotics — robolibs</title>
+<meta name="description" content="Each one is its own repository, tagged and versioned on its own — usable alone, or combined the way the ones on this page already combine each other.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -18,10 +18,8 @@
         <span>robolibs</span>
       </a>
       <nav>
-        <a href="./index.html" aria-current="page">overview</a>
-        <a href="./crates/index.html">the eighteen</a>
-        <a href="./architecture/index.html">architecture</a>
-        <a href="./guides/install.html">guides</a>
+        <a href="./crates/index.html">crates</a>
+        <a href="./guides/install.html">install</a>
       </nav>
       <div class="ghost">
         <a href="https://github.com/robolibs">github</a>
@@ -31,34 +29,29 @@
   <div class="wrap wide">
 
     <main>
-      <h1>Eighteen crates, one convention</h1>
-      <p class="lede">robolibs is a set of independently-versioned Rust robotics crates — each its own repository, each usable alone, wired together here as git submodules for the ones building on each other.</p>
+      <h1>Eighteen Rust crates for robotics</h1>
+      <p class="lede">Each one is its own repository, tagged and versioned on its own — usable alone, or combined the way the ones on this page already combine each other.</p>
 
       <h2 id="start">Start here</h2>
-      <div class="tw"><table>
-        <thead><tr><th></th><th></th></tr></thead>
-        <tbody>
-          <tr><td><a href="crates/index.html">the eighteen</a></td><td>what each crate does, one line each</td></tr>
-          <tr><td><a href="architecture/index.html">the map</a></td><td>who depends on whom, laid out foundation-first</td></tr>
-          <tr><td><a href="guides/install.html">install</a></td><td>clone the whole set, or one crate on its own</td></tr>
-        </tbody>
-      </table></div>
-
-      <h2 id="rules">What holds it together</h2>
       <ul class="plain">
-        <li><b>Own repo, own version.</b> Every crate is published from its own GitHub repository,
-        tagged and versioned on its own schedule. Nothing here is a Cargo workspace member of
-        anything else.</li>
-        <li><b>No crate reaches into another's internals.</b> A dependency here is an ordinary
-        Cargo dependency on a tagged release, the same as any crates.io dependency would be — the
-        only difference is where it's hosted.</li>
-        <li><b>Submodules, not a monorepo.</b> This root pins each crate to a commit via
-        <code>.gitmodules</code> — a known-good combination, not a shared build. Clone a crate by
-        itself and it still builds.</li>
-        <li><b>Foundation crates stay foundation crates.</b> <code>datapod</code>,
-        <code>keylock</code>, <code>stateup</code>, <code>tagdata</code> and <code>wirebit</code>
-        depend on nothing else here — see the bottom of <a href="architecture/index.html">the
-        map</a>. Everything else is built in terms of them.</li>
+        <li><a href="crates/index.html">Every crate</a> — what each one does, and what it
+        depends on.</li>
+        <li><a href="guides/install.html">Install</a> — one crate as a normal Cargo dependency,
+        or the whole set as submodules.</li>
+      </ul>
+
+      <h2 id="rules">How it's put together</h2>
+      <ul class="plain">
+        <li>Every crate is published from its own repository. None of them is a Cargo workspace
+        member of any other — a dependency between two of them is an ordinary Cargo dependency
+        on a tagged release, the same as a crates.io dependency would be.</li>
+        <li>This root pins each one to a commit as a git submodule. That's a known-good
+        combination, not a shared build — clone a crate on its own and it still builds.</li>
+        <li>Five crates depend on nothing else here: <a href="crates/datapod.html">datapod</a>,
+        <a href="crates/keylock.html">keylock</a>, <a href="crates/stateup.html">stateup</a>,
+        <a href="crates/tagdata.html">tagdata</a>, and <a href="crates/wirebit.html">wirebit</a>.
+        Most of what else is here builds on <a href="crates/datapod.html">datapod</a> in
+        particular — it's the data types the rest agree on.</li>
       </ul>
     </main>
   </div>
@@ -67,7 +60,7 @@
       <span>eighteen crates, no shared code</span>
       <span>git submodules, not a monorepo</span>
       <a href="https://github.com/robolibs/.github">.github</a>
-      <a href="./architecture/index.html">the map</a>
+      <a href="./crates/index.html">every crate</a>
     </div>
   </footer>
 </body>

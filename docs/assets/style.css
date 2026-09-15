@@ -8,7 +8,7 @@
   --ink-dim: #625d4e;
   --line: #161511;
   --line-soft: #d8d2c0;
-  --amber: #c9861a;
+  --amber: #f3ac25;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
 }
@@ -177,39 +177,6 @@ td b { font-family: var(--mono); font-weight: 600; }
 .dim { color: var(--ink-dim); font-style: italic; font-size: 0.9em; }
 .wrap-ok { max-width: 34ch; display: inline-block; }
 
-/* ---------------------------------------------------------------------------------- diagram */
-
-.diagram {
-  border: 2px solid var(--line);
-  margin: 20px 0;
-  overflow-x: auto;
-}
-.diagram header {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 16px;
-  border-bottom: 1px solid var(--line);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--ink-dim);
-}
-.diagram .body { padding: 24px; }
-
-svg.graph { display: block; margin: 0 auto; font-family: var(--mono); }
-svg.graph .edge { fill: none; stroke: var(--ink-dim); stroke-width: 1.2; }
-svg.graph .node rect {
-  fill: var(--paper);
-  stroke: var(--ink);
-  stroke-width: 1.6;
-}
-svg.graph .node[data-layer="0"] rect { stroke: var(--amber); stroke-width: 2; }
-svg.graph .node text {
-  fill: var(--ink);
-  font-size: 12px;
-  text-anchor: middle;
-  dominant-baseline: middle;
-}
-svg.graph .node:hover rect { fill: var(--line-soft); }
 
 /* ---------------------------------------------------------------------------------- footer */
 

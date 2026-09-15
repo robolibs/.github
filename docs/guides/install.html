@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Install — robolibs</title>
-<meta name="description" content="Clone the whole set as submodules, or take one crate on its own — both are first-class.">
+<meta name="description" content="One crate as a normal Cargo dependency, or the whole set as submodules.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -18,10 +18,8 @@
         <span>robolibs</span>
       </a>
       <nav>
-        <a href="../index.html">overview</a>
-        <a href="../crates/index.html">the eighteen</a>
-        <a href="../architecture/index.html">architecture</a>
-        <a href="../guides/install.html" aria-current="page">guides</a>
+        <a href="../crates/index.html">crates</a>
+        <a href="../guides/install.html" aria-current="page">install</a>
       </nav>
       <div class="ghost">
         <a href="https://github.com/robolibs">github</a>
@@ -32,13 +30,13 @@
 
     <main>
       <h1>Install</h1>
-      <p class="lede">Clone the whole set as submodules, or take one crate on its own — both are first-class.</p>
+      <p class="lede">One crate as a normal Cargo dependency, or the whole set as submodules.</p>
 
       <h2 id="one">One crate</h2>
       <p>Every crate is a normal Cargo dependency on a tagged release:</p>
       <pre><code>[dependencies]
 datapod = { git = "https://github.com/robolibs/datapod.git", tag = "0.4.1" }</code></pre>
-      <p>Or clone it directly — it builds standalone, with no sibling checkouts required.</p>
+      <p>Or clone it directly. It builds on its own, with no sibling checkouts required.</p>
 
       <h2 id="all">The whole set</h2>
       <pre><code>git clone --recursive https://github.com/robolibs/.github.git robolibs
@@ -57,7 +55,7 @@ cargo test</code></pre>
       <span>eighteen crates, no shared code</span>
       <span>git submodules, not a monorepo</span>
       <a href="https://github.com/robolibs/.github">.github</a>
-      <a href="../architecture/index.html">the map</a>
+      <a href="../crates/index.html">every crate</a>
     </div>
   </footer>
 </body>

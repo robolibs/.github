@@ -27,10 +27,13 @@ function root(at) {
 /** The top bar, with the current section marked. */
 function topbar(page) {
   const r = root(page.at);
-  const links = SECTIONS.map((s) => {
-    const here = s.key === page.section ? " aria-current=\"page\"" : "";
-    return `<a href="${r}/${s.home}"${here}>${s.name}</a>`;
-  }).join("\n        ");
+  // The brand mark already links home, so the nav itself only lists real destinations.
+  const links = SECTIONS.filter((s) => s.key !== "home")
+    .map((s) => {
+      const here = s.key === page.section ? " aria-current=\"page\"" : "";
+      return `<a href="${r}/${s.home}"${here}>${s.name}</a>`;
+    })
+    .join("\n        ");
   return `  <header class="top">
     <div class="bar">
       <a class="brand" href="${r}/index.html" aria-label="robolibs, home">
@@ -97,7 +100,7 @@ ${page.body}
       <span>eighteen crates, no shared code</span>
       <span>git submodules, not a monorepo</span>
       <a href="https://github.com/robolibs/.github">.github</a>
-      <a href="${r}/architecture/index.html">the map</a>
+      <a href="${r}/crates/index.html">every crate</a>
     </div>
   </footer>
 </body>
@@ -131,8 +134,7 @@ writeFileSync(
     blurb: "That page does not exist. The overview is a good place to start again.",
     body: `      <ul class="plain">
         <li><a href="index.html">the overview</a> — what robolibs is</li>
-        <li><a href="crates/index.html">the eighteen</a> — every crate, one line each</li>
-        <li><a href="architecture/index.html">the map</a> — who depends on whom</li>
+        <li><a href="crates/index.html">every crate</a> — what each one does, one line each</li>
         <li><a href="guides/install.html">install</a> — clone one crate, or all of them</li>
       </ul>`,
   }),

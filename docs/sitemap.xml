@@ -2,6 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://robolibs.github.io/index.html</loc></url>
   <url><loc>https://robolibs.github.io/crates/index.html</loc></url>
-  <url><loc>https://robolibs.github.io/architecture/index.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/agentio.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/authbox.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/concord.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/datapod.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/gearbox.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/graphix.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/keylock.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/machbus.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/maptrax.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/ondrive.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/peerbus.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/rastera.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/stateup.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/syncbot.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/tagdata.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/vectory.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/wirebit.html</loc></url>
+  <url><loc>https://robolibs.github.io/crates/zoneout.html</loc></url>
   <url><loc>https://robolibs.github.io/guides/install.html</loc></url>
 </urlset>

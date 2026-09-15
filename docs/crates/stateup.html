@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stateup — robolibs</title>
+<meta name="description" content="Behavior trees and hierarchical state machines, sharing one blackboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="bar">
+      <a class="brand" href="../index.html" aria-label="robolibs, home">
+        <img class="mark" src="../assets/logo.svg" alt="" width="28" height="28">
+        <span>robolibs</span>
+      </a>
+      <nav>
+        <a href="../crates/index.html" aria-current="page">crates</a>
+        <a href="../guides/install.html">install</a>
+      </nav>
+      <div class="ghost">
+        <a href="https://github.com/robolibs">github</a>
+      </div>
+    </div>
+  </header>
+  <div class="wrap">
+  <aside>
+    <h5>crates</h5>
+    <ul>
+      <li><a href="index.html">every crate</a></li>
+      <li><a href="agentio.html">agentio</a></li>
+      <li><a href="authbox.html">authbox</a></li>
+      <li><a href="concord.html">concord</a></li>
+      <li><a href="datapod.html">datapod</a></li>
+      <li><a href="gearbox.html">gearbox</a></li>
+      <li><a href="graphix.html">graphix</a></li>
+      <li><a href="keylock.html">keylock</a></li>
+      <li><a href="machbus.html">machbus</a></li>
+      <li><a href="maptrax.html">maptrax</a></li>
+      <li><a href="ondrive.html">ondrive</a></li>
+      <li><a href="peerbus.html">peerbus</a></li>
+      <li><a href="rastera.html">rastera</a></li>
+      <li><a href="stateup.html" aria-current="page">stateup</a></li>
+      <li><a href="syncbot.html">syncbot</a></li>
+      <li><a href="tagdata.html">tagdata</a></li>
+      <li><a href="vectory.html">vectory</a></li>
+      <li><a href="wirebit.html">wirebit</a></li>
+      <li><a href="zoneout.html">zoneout</a></li>
+    </ul>
+  </aside>
+    <main>
+      <h1>stateup</h1>
+      <p class="lede">Behavior trees and hierarchical state machines, sharing one blackboard.</p>
+
+<p>Composite, decorator, and leaf nodes for tick-driven behavior trees; guarded, timed,
+    and probabilistic transitions for state machines with nested regions and history. Both read and
+    write the same typed blackboard, so a tree and a state machine in the same system can watch the
+    same data without a translation layer between them.</p>
+    <p>All of it runs from Rust, from C through a callback-based ABI, and from Python — the same
+    tree behaves the same way regardless of which side is driving it.</p>
+      <h2 id="on">Builds on</h2>
+      <p class="dim">Nothing else here. This is one of the five foundation crates.</p>
+      <h2 id="by">Used by</h2>
+      <ul class="plain"><li><a href="ondrive.html">ondrive</a></li></ul>
+      <h2 id="repo">Repository</h2>
+      <p><a href="https://github.com/robolibs/stateup">github.com/robolibs/stateup</a></p>
+    </main>
+  </div>
+  <footer class="foot">
+    <div class="in">
+      <span>eighteen crates, no shared code</span>
+      <span>git submodules, not a monorepo</span>
+      <a href="https://github.com/robolibs/.github">.github</a>
+      <a href="../crates/index.html">every crate</a>
+    </div>
+  </footer>
+</body>
+</html>
