@@ -7,7 +7,7 @@
 <meta name="description" content="Clone the whole set as submodules, or take one crate on its own — both are first-class.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -47,21 +47,9 @@ cd robolibs</code></pre>
       <pre><code>git submodule update --init</code></pre>
 
       <h2 id="build">Building</h2>
-      <p>Every crate — root included — uses the same two files instead of
-      <code>.envrc</code>/<code>Makefile</code>: <code>.env.lua</code> loads the dev shell and
-      <code>.make.lua</code> holds the recipes, both read by
-      <a href="https://github.com/robolibs">oslo</a>.</p>
-      <div class="tw"><table>
-        <thead><tr><th></th><th></th></tr></thead>
-        <tbody>
-          <tr><td><code>oslo make</code></td><td>list this crate's recipes, with what each one does</td></tr>
-          <tr><td><code>oslo make build</code></td><td>the library</td></tr>
-          <tr><td><code>oslo make test</code></td><td>the suite</td></tr>
-        </tbody>
-      </table></div>
-      <p>From the root, the same recipes fan out to every submodule in turn:
-      <code>oslo make status</code> shows where each checkout stands — its branch, what's ahead,
-      what's uncommitted.</p>
+      <p>Every crate is an ordinary Cargo project — nothing site-specific to learn:</p>
+      <pre><code>cargo build
+cargo test</code></pre>
     </main>
   </div>
   <footer class="foot">

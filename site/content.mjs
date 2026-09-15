@@ -57,25 +57,6 @@ PAGES.push({
     "robolibs is a set of independently-versioned Rust robotics crates — each its own repository, " +
     "each usable alone, wired together here as git submodules for the ones building on each other.",
   body: `
-      <div class="cards">
-        <div class="card">
-          <h4>own repo, own version</h4>
-          <p>Every crate is published from its own GitHub repository, tagged and versioned on its
-          own schedule. Nothing here is a Cargo workspace member of anything else.</p>
-        </div>
-        <div class="card">
-          <h4>submodules, not a monorepo</h4>
-          <p>This root pins each crate to a commit via <code>.gitmodules</code> — a known-good
-          combination, not a shared build. Clone a crate by itself and it still builds.</p>
-        </div>
-        <div class="card">
-          <h4>a real dependency graph</h4>
-          <p>Some crates build on others — <a href="architecture/index.html">datapod</a> underpins
-          most of them, <a href="crates/index.html#syncbot">syncbot</a> sits on top of seven. See
-          <a href="architecture/index.html">the map</a>.</p>
-        </div>
-      </div>
-
       <h2 id="start">Start here</h2>
 ${table(["", ""], [
   ['<a href="crates/index.html">the eighteen</a>', "what each crate does, one line each"],
@@ -85,17 +66,19 @@ ${table(["", ""], [
 
       <h2 id="rules">What holds it together</h2>
       <ul class="plain">
+        <li><b>Own repo, own version.</b> Every crate is published from its own GitHub repository,
+        tagged and versioned on its own schedule. Nothing here is a Cargo workspace member of
+        anything else.</li>
         <li><b>No crate reaches into another's internals.</b> A dependency here is an ordinary
         Cargo dependency on a tagged release, the same as any crates.io dependency would be — the
         only difference is where it's hosted.</li>
+        <li><b>Submodules, not a monorepo.</b> This root pins each crate to a commit via
+        <code>.gitmodules</code> — a known-good combination, not a shared build. Clone a crate by
+        itself and it still builds.</li>
         <li><b>Foundation crates stay foundation crates.</b> <code>datapod</code>,
         <code>keylock</code>, <code>stateup</code>, <code>tagdata</code> and <code>wirebit</code>
         depend on nothing else here — see the bottom of <a href="architecture/index.html">the
         map</a>. Everything else is built in terms of them.</li>
-        <li><b>One build convention, not one build.</b> Every crate uses the same
-        <code>.env.lua</code> / <code>.make.lua</code> shape (<a href="guides/install.html">install
-        guide</a>), so moving between crates costs nothing to relearn — but each still builds and
-        tests on its own.</li>
       </ul>`,
 });
 
@@ -143,8 +126,8 @@ ${table(["", ""], [
       "Every arrow below is an ordinary Cargo dependency, read straight out of each crate's own " +
       "Cargo.toml — foundation crates on the left, everything built on them running right.",
     body: `
-      <div class="plate">
-        <header><b>dependency graph</b><span>foundation left, dependents right</span></header>
+      <div class="diagram">
+        <header><span>dependency graph</span><span>foundation left, dependents right</span></header>
         <div class="body">${graphSvg()}</div>
       </div>
 
@@ -187,16 +170,7 @@ cd robolibs</code></pre>
       <pre><code>git submodule update --init</code></pre>
 
       <h2 id="build">Building</h2>
-      <p>Every crate — root included — uses the same two files instead of
-      <code>.envrc</code>/<code>Makefile</code>: <code>.env.lua</code> loads the dev shell and
-      <code>.make.lua</code> holds the recipes, both read by
-      <a href="https://github.com/robolibs">oslo</a>.</p>
-${table(["", ""], [
-  ["<code>oslo make</code>", "list this crate's recipes, with what each one does"],
-  ["<code>oslo make build</code>", "the library"],
-  ["<code>oslo make test</code>", "the suite"],
-])}
-      <p>From the root, the same recipes fan out to every submodule in turn:
-      <code>oslo make status</code> shows where each checkout stands — its branch, what's ahead,
-      what's uncommitted.</p>`,
+      <p>Every crate is an ordinary Cargo project — nothing site-specific to learn:</p>
+      <pre><code>cargo build
+cargo test</code></pre>`,
 });
