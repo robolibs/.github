@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eighteen crates, one convention — robolibs</title>
+<meta name="description" content="robolibs is a set of independently-versioned Rust robotics crates — each its own repository, each usable alone, wired together here as git submodules for the ones building on each other.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="bar">
+      <a class="brand" href="./index.html" aria-label="robolibs, home">
+        <img class="mark" src="./assets/logo.svg" alt="" width="28" height="28">
+        <span>robolibs</span>
+      </a>
+      <nav>
+        <a href="./index.html" aria-current="page">overview</a>
+        <a href="./crates/index.html">the eighteen</a>
+        <a href="./architecture/index.html">architecture</a>
+        <a href="./guides/install.html">guides</a>
+      </nav>
+      <div class="ghost">
+        <a href="https://github.com/robolibs">github</a>
+      </div>
+    </div>
+  </header>
+  <div class="wrap wide">
+
+    <main>
+      <h1>Eighteen crates, one convention</h1>
+      <p class="lede">robolibs is a set of independently-versioned Rust robotics crates — each its own repository, each usable alone, wired together here as git submodules for the ones building on each other.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h4>own repo, own version</h4>
+          <p>Every crate is published from its own GitHub repository, tagged and versioned on its
+          own schedule. Nothing here is a Cargo workspace member of anything else.</p>
+        </div>
+        <div class="card">
+          <h4>submodules, not a monorepo</h4>
+          <p>This root pins each crate to a commit via <code>.gitmodules</code> — a known-good
+          combination, not a shared build. Clone a crate by itself and it still builds.</p>
+        </div>
+        <div class="card">
+          <h4>a real dependency graph</h4>
+          <p>Some crates build on others — <a href="architecture/index.html">datapod</a> underpins
+          most of them, <a href="crates/index.html#syncbot">syncbot</a> sits on top of seven. See
+          <a href="architecture/index.html">the map</a>.</p>
+        </div>
+      </div>
+
+      <h2 id="start">Start here</h2>
+      <div class="tw"><table>
+        <thead><tr><th></th><th></th></tr></thead>
+        <tbody>
+          <tr><td><a href="crates/index.html">the eighteen</a></td><td>what each crate does, one line each</td></tr>
+          <tr><td><a href="architecture/index.html">the map</a></td><td>who depends on whom, laid out foundation-first</td></tr>
+          <tr><td><a href="guides/install.html">install</a></td><td>clone the whole set, or one crate on its own</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="rules">What holds it together</h2>
+      <ul class="plain">
+        <li><b>No crate reaches into another's internals.</b> A dependency here is an ordinary
+        Cargo dependency on a tagged release, the same as any crates.io dependency would be — the
+        only difference is where it's hosted.</li>
+        <li><b>Foundation crates stay foundation crates.</b> <code>datapod</code>,
+        <code>keylock</code>, <code>stateup</code>, <code>tagdata</code> and <code>wirebit</code>
+        depend on nothing else here — see the bottom of <a href="architecture/index.html">the
+        map</a>. Everything else is built in terms of them.</li>
+        <li><b>One build convention, not one build.</b> Every crate uses the same
+        <code>.env.lua</code> / <code>.make.lua</code> shape (<a href="guides/install.html">install
+        guide</a>), so moving between crates costs nothing to relearn — but each still builds and
+        tests on its own.</li>
+      </ul>
+    </main>
+  </div>
+  <footer class="foot">
+    <div class="in">
+      <span>eighteen crates, no shared code</span>
+      <span>git submodules, not a monorepo</span>
+      <a href="https://github.com/robolibs/.github">.github</a>
+      <a href="./architecture/index.html">the map</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install — robolibs</title>
+<meta name="description" content="Clone the whole set as submodules, or take one crate on its own — both are first-class.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="bar">
+      <a class="brand" href="../index.html" aria-label="robolibs, home">
+        <img class="mark" src="../assets/logo.svg" alt="" width="28" height="28">
+        <span>robolibs</span>
+      </a>
+      <nav>
+        <a href="../index.html">overview</a>
+        <a href="../crates/index.html">the eighteen</a>
+        <a href="../architecture/index.html">architecture</a>
+        <a href="../guides/install.html" aria-current="page">guides</a>
+      </nav>
+      <div class="ghost">
+        <a href="https://github.com/robolibs">github</a>
+      </div>
+    </div>
+  </header>
+  <div class="wrap wide">
+
+    <main>
+      <h1>Install</h1>
+      <p class="lede">Clone the whole set as submodules, or take one crate on its own — both are first-class.</p>
+
+      <h2 id="one">One crate</h2>
+      <p>Every crate is a normal Cargo dependency on a tagged release:</p>
+      <pre><code>[dependencies]
+datapod = { git = "https://github.com/robolibs/datapod.git", tag = "0.4.1" }</code></pre>
+      <p>Or clone it directly — it builds standalone, with no sibling checkouts required.</p>
+
+      <h2 id="all">The whole set</h2>
+      <pre><code>git clone --recursive https://github.com/robolibs/.github.git robolibs
+cd robolibs</code></pre>
+      <p>Cloned without <code>--recursive</code>? Fill the submodules in after the fact:</p>
+      <pre><code>git submodule update --init</code></pre>
+
+      <h2 id="build">Building</h2>
+      <p>Every crate — root included — uses the same two files instead of
+      <code>.envrc</code>/<code>Makefile</code>: <code>.env.lua</code> loads the dev shell and
+      <code>.make.lua</code> holds the recipes, both read by
+      <a href="https://github.com/robolibs">oslo</a>.</p>
+      <div class="tw"><table>
+        <thead><tr><th></th><th></th></tr></thead>
+        <tbody>
+          <tr><td><code>oslo make</code></td><td>list this crate's recipes, with what each one does</td></tr>
+          <tr><td><code>oslo make build</code></td><td>the library</td></tr>
+          <tr><td><code>oslo make test</code></td><td>the suite</td></tr>
+        </tbody>
+      </table></div>
+      <p>From the root, the same recipes fan out to every submodule in turn:
+      <code>oslo make status</code> shows where each checkout stands — its branch, what's ahead,
+      what's uncommitted.</p>
+    </main>
+  </div>
+  <footer class="foot">
+    <div class="in">
+      <span>eighteen crates, no shared code</span>
+      <span>git submodules, not a monorepo</span>
+      <a href="https://github.com/robolibs/.github">.github</a>
+      <a href="../architecture/index.html">the map</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The eighteen — robolibs</title>
+<meta name="description" content="What each crate does, and what it builds on. Foundation crates depend on nothing here.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="bar">
+      <a class="brand" href="../index.html" aria-label="robolibs, home">
+        <img class="mark" src="../assets/logo.svg" alt="" width="28" height="28">
+        <span>robolibs</span>
+      </a>
+      <nav>
+        <a href="../index.html">overview</a>
+        <a href="../crates/index.html" aria-current="page">the eighteen</a>
+        <a href="../architecture/index.html">architecture</a>
+        <a href="../guides/install.html">guides</a>
+      </nav>
+      <div class="ghost">
+        <a href="https://github.com/robolibs">github</a>
+      </div>
+    </div>
+  </header>
+  <div class="wrap wide">
+
+    <main>
+      <h1>The eighteen</h1>
+      <p class="lede">What each crate does, and what it builds on. Foundation crates depend on nothing here.</p>
+      <div class="tw"><table>
+        <thead><tr><th>crate</th><th>what it does</th><th>builds on</th></tr></thead>
+        <tbody>
+          <tr><td><b id="agentio"><a href="https://github.com/robolibs/agentio">agentio</a></b></td><td>Agent IO interface and agent composition on top of peerbus</td><td><span class="wrap-ok"><a href="index.html#authbox">authbox</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#peerbus">peerbus</a></span></td></tr>
+          <tr><td><b id="authbox"><a href="https://github.com/robolibs/authbox">authbox</a></b></td><td>Pure Rust PKI and DID toolkit</td><td><span class="wrap-ok"><a href="index.html#keylock">keylock</a></span></td></tr>
+          <tr><td><b id="concord"><a href="https://github.com/robolibs/concord">concord</a></b></td><td>Coordinate transformation library for robotics</td><td><span class="wrap-ok"><a href="index.html#datapod">datapod</a>, <a href="index.html#graphix">graphix</a></span></td></tr>
+          <tr><td><b id="datapod"><a href="https://github.com/robolibs/datapod">datapod</a></b></td><td>Robotics data types and POD-oriented containers</td><td><span class="wrap-ok"><span class="dim">— foundation</span></span></td></tr>
+          <tr><td><b id="gearbox"><a href="https://github.com/robolibs/gearbox">gearbox</a></b></td><td>USD simulator and Bevy renderer for ground robots and farm implements</td><td><span class="wrap-ok"><a href="index.html#agentio">agentio</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#peerbus">peerbus</a></span></td></tr>
+          <tr><td><b id="graphix"><a href="https://github.com/robolibs/graphix">graphix</a></b></td><td>Graph library combining vertex graphs and factor graphs</td><td><span class="wrap-ok"><a href="index.html#datapod">datapod</a></span></td></tr>
+          <tr><td><b id="keylock"><a href="https://github.com/robolibs/keylock">keylock</a></b></td><td>Pure Rust cryptographic keylock primitives</td><td><span class="wrap-ok"><span class="dim">— foundation</span></span></td></tr>
+          <tr><td><b id="machbus"><a href="https://github.com/robolibs/machbus">machbus</a></b></td><td>ISO 11783 (ISOBUS) + J1939 + NMEA2000 networking stack</td><td><span class="wrap-ok"><a href="index.html#concord">concord</a>, <a href="index.html#wirebit">wirebit</a></span></td></tr>
+          <tr><td><b id="maptrax"><a href="https://github.com/robolibs/maptrax">maptrax</a></b></td><td>Agricultural field planning library</td><td><span class="wrap-ok"><a href="index.html#concord">concord</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#graphix">graphix</a>, <a href="index.html#vectory">vectory</a></span></td></tr>
+          <tr><td><b id="ondrive"><a href="https://github.com/robolibs/ondrive">ondrive</a></b></td><td>Motion-control / path-tracking library for mobile robots</td><td><span class="wrap-ok"><a href="index.html#datapod">datapod</a>, <a href="index.html#stateup">stateup</a></span></td></tr>
+          <tr><td><b id="peerbus"><a href="https://github.com/robolibs/peerbus">peerbus</a></b></td><td>Typed zero-copy messaging: shared memory and QUIC, one API</td><td><span class="wrap-ok"><a href="index.html#authbox">authbox</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#wirebit">wirebit</a></span></td></tr>
+          <tr><td><b id="rastera"><a href="https://github.com/robolibs/rastera">rastera</a></b></td><td>GeoTIFF and raster library</td><td><span class="wrap-ok"><a href="index.html#concord">concord</a>, <a href="index.html#datapod">datapod</a></span></td></tr>
+          <tr><td><b id="stateup"><a href="https://github.com/robolibs/stateup">stateup</a></b></td><td>Behavior trees and hierarchical state machines</td><td><span class="wrap-ok"><span class="dim">— foundation</span></span></td></tr>
+          <tr><td><b id="syncbot"><a href="https://github.com/robolibs/syncbot">syncbot</a></b></td><td>Multi-robot navigation, claims, and scheduling</td><td><span class="wrap-ok"><a href="index.html#authbox">authbox</a>, <a href="index.html#concord">concord</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#graphix">graphix</a>, <a href="index.html#keylock">keylock</a>, <a href="index.html#peerbus">peerbus</a>, <a href="index.html#zoneout">zoneout</a></span></td></tr>
+          <tr><td><b id="tagdata"><a href="https://github.com/robolibs/tagdata">tagdata</a></b></td><td>Embedded, single-file, memory-mapped key/value database</td><td><span class="wrap-ok"><span class="dim">— foundation</span></span></td></tr>
+          <tr><td><b id="vectory"><a href="https://github.com/robolibs/vectory">vectory</a></b></td><td>GeoJSON vector library for robotics</td><td><span class="wrap-ok"><a href="index.html#concord">concord</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#graphix">graphix</a></span></td></tr>
+          <tr><td><b id="wirebit"><a href="https://github.com/robolibs/wirebit">wirebit</a></b></td><td>Simulated hardware comms — serial, CAN, ethernet — over shared memory</td><td><span class="wrap-ok"><span class="dim">— foundation</span></span></td></tr>
+          <tr><td><b id="zoneout"><a href="https://github.com/robolibs/zoneout">zoneout</a></b></td><td>Hierarchical agricultural zone / workspace library</td><td><span class="wrap-ok"><a href="index.html#concord">concord</a>, <a href="index.html#datapod">datapod</a>, <a href="index.html#graphix">graphix</a>, <a href="index.html#rastera">rastera</a>, <a href="index.html#vectory">vectory</a></span></td></tr>
+        </tbody>
+      </table></div>
+    </main>
+  </div>
+  <footer class="foot">
+    <div class="in">
+      <span>eighteen crates, no shared code</span>
+      <span>git submodules, not a monorepo</span>
+      <a href="https://github.com/robolibs/.github">.github</a>
+      <a href="../architecture/index.html">the map</a>
+    </div>
+  </footer>
+</body>
+</html>

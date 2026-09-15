@@ -1,0 +1,270 @@
+/* robolibs — a technical catalog, not a dashboard. Paper, ink, one amber accent (the org mark's
+   own colour). Where nerv is dark and condensed, this is light and set like a parts book. */
+
+:root {
+  --paper: #f6f3ec;
+  --paper-raised: #fffdf8;
+  --ink: #26241d;
+  --ink-dim: #6b6656;
+  --line: #ddd6c4;
+  --amber: #c9861a;
+  --amber-ink: #7a5511;
+  --amber-bg: #f8ecd4;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --sans: "Space Grotesk", -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(var(--paper) 0%, var(--paper) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 31px, var(--line) 31px, var(--line) 32px);
+  background-attachment: local;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a { color: var(--amber-ink); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: currentColor; }
+
+code, pre {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+pre {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+:not(pre) > code {
+  background: var(--amber-bg);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------------------- top bar */
+
+.top {
+  position: sticky;
+  top: 0;
+  background: var(--paper-raised);
+  border-bottom: 2px solid var(--ink);
+  z-index: 10;
+}
+.bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  border: 0;
+}
+.brand .mark { display: block; }
+.bar nav { display: flex; gap: 22px; flex: 1; flex-wrap: wrap; }
+.bar nav a {
+  color: var(--ink-dim);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 0;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+.bar nav a:hover { color: var(--ink); }
+.bar nav a[aria-current="page"] { color: var(--amber-ink); border-bottom-color: var(--amber); }
+.ghost a { color: var(--ink-dim); font-size: 0.85rem; border: 0; }
+.ghost a:hover { color: var(--ink); }
+
+/* ---------------------------------------------------------------------------------- layout */
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+}
+.wrap.wide { grid-template-columns: 1fr; }
+
+aside h5 {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+}
+aside ul { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+aside li a {
+  display: block;
+  padding: 6px 0 6px 14px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+}
+aside li a:hover { color: var(--ink); border-bottom: 0; }
+aside li a[aria-current="page"] {
+  color: var(--amber-ink);
+  border-left-color: var(--amber);
+  font-weight: 600;
+}
+
+main h1 {
+  font-family: var(--sans);
+  font-size: 2.1rem;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+main .lede {
+  font-size: 1.15rem;
+  color: var(--ink-dim);
+  max-width: 62ch;
+  margin: 0 0 32px;
+}
+main h2 {
+  font-family: var(--sans);
+  font-size: 1.3rem;
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+main p { max-width: 68ch; }
+main ul.plain { list-style: none; margin: 0; padding: 0; max-width: 68ch; }
+main ul.plain li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+main ul.plain li:last-child { border-bottom: 0; }
+
+/* ---------------------------------------------------------------------------------- cards */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0 8px;
+}
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--amber);
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+.card h4 {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--amber-ink);
+}
+.card p { margin: 0; font-size: 0.92rem; color: var(--ink-dim); }
+.card a { font-size: 0.88rem; }
+
+/* ---------------------------------------------------------------------------------- tables */
+
+.tw { overflow-x: auto; margin: 18px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-dim);
+  padding: 8px 16px 8px 0;
+  border-bottom: 2px solid var(--ink);
+}
+td { padding: 10px 16px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td b { font-family: var(--mono); }
+.dim { color: var(--ink-dim); font-style: italic; }
+.wrap-ok { max-width: 32ch; }
+
+/* ---------------------------------------------------------------------------------- plate */
+
+.plate {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 18px 0;
+  overflow: hidden;
+}
+.plate header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 16px;
+  background: var(--amber-bg);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.plate header b { color: var(--amber-ink); }
+.plate header span { color: var(--ink-dim); }
+.plate .body { padding: 20px; overflow-x: auto; }
+
+/* the dependency graph */
+svg.graph { display: block; margin: 0 auto; font-family: var(--mono); }
+svg.graph .edge { fill: none; stroke: var(--ink-dim); stroke-width: 1.4; opacity: 0.55; }
+svg.graph .node rect {
+  fill: var(--paper-raised);
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+svg.graph .node[data-layer="0"] rect { fill: var(--amber-bg); stroke: var(--amber-ink); }
+svg.graph .node text {
+  fill: var(--ink);
+  font-size: 12px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+svg.graph .node:hover rect { stroke: var(--amber-ink); stroke-width: 2; }
+
+/* ---------------------------------------------------------------------------------- footer */
+
+.foot {
+  border-top: 2px solid var(--ink);
+  background: var(--paper-raised);
+}
+.foot .in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+}
+.foot .in a { color: var(--ink-dim); }
+.foot .in a:hover { color: var(--amber-ink); }
+
+/* ---------------------------------------------------------------------------------- phones */
+
+@media (max-width: 680px) {
+  .wrap { grid-template-columns: 1fr; padding: 24px 16px 60px; }
+  aside { order: 2; border-top: 1px solid var(--line); padding-top: 16px; }
+  .bar { gap: 16px; padding: 12px 16px; flex-wrap: wrap; }
+  .bar nav { gap: 14px; order: 3; width: 100%; }
+  main h1 { font-size: 1.6rem; }
+}

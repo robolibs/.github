@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The map — robolibs</title>
+<meta name="description" content="Every arrow below is an ordinary Cargo dependency, read straight out of each crate's own Cargo.toml — foundation crates on the left, everything built on them running right.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="bar">
+      <a class="brand" href="../index.html" aria-label="robolibs, home">
+        <img class="mark" src="../assets/logo.svg" alt="" width="28" height="28">
+        <span>robolibs</span>
+      </a>
+      <nav>
+        <a href="../index.html">overview</a>
+        <a href="../crates/index.html">the eighteen</a>
+        <a href="../architecture/index.html" aria-current="page">architecture</a>
+        <a href="../guides/install.html">guides</a>
+      </nav>
+      <div class="ghost">
+        <a href="https://github.com/robolibs">github</a>
+      </div>
+    </div>
+  </header>
+  <div class="wrap wide">
+
+    <main>
+      <h1>The map</h1>
+      <p class="lede">Every arrow below is an ordinary Cargo dependency, read straight out of each crate's own Cargo.toml — foundation crates on the left, everything built on them running right.</p>
+
+      <div class="plate">
+        <header><b>dependency graph</b><span>foundation left, dependents right</span></header>
+        <div class="body"><svg class="graph" viewBox="0 0 1020 290" role="img" aria-label="dependency graph, foundation crates on the left">
+    <path class="edge" d="M528 67 C 426 67, 426 93, 324 93" />
+    <path class="edge" d="M528 67 C 342 67, 342 41, 156 41" />
+    <path class="edge" d="M528 67 C 510 67, 510 171, 492 171" />
+    <path class="edge" d="M192 93 C 174 93, 174 93, 156 93" />
+    <path class="edge" d="M360 119 C 258 119, 258 41, 156 41" />
+    <path class="edge" d="M360 119 C 342 119, 342 145, 324 145" />
+    <path class="edge" d="M696 93 C 678 93, 678 67, 660 67" />
+    <path class="edge" d="M696 93 C 426 93, 426 41, 156 41" />
+    <path class="edge" d="M696 93 C 594 93, 594 171, 492 171" />
+    <path class="edge" d="M192 145 C 174 145, 174 41, 156 41" />
+    <path class="edge" d="M528 119 C 510 119, 510 119, 492 119" />
+    <path class="edge" d="M528 119 C 342 119, 342 249, 156 249" />
+    <path class="edge" d="M696 145 C 594 145, 594 119, 492 119" />
+    <path class="edge" d="M696 145 C 426 145, 426 41, 156 41" />
+    <path class="edge" d="M696 145 C 510 145, 510 145, 324 145" />
+    <path class="edge" d="M696 145 C 678 145, 678 223, 660 223" />
+    <path class="edge" d="M192 197 C 174 197, 174 41, 156 41" />
+    <path class="edge" d="M192 197 C 174 197, 174 145, 156 145" />
+    <path class="edge" d="M360 171 C 342 171, 342 93, 324 93" />
+    <path class="edge" d="M360 171 C 258 171, 258 41, 156 41" />
+    <path class="edge" d="M360 171 C 258 171, 258 249, 156 249" />
+    <path class="edge" d="M528 171 C 510 171, 510 119, 492 119" />
+    <path class="edge" d="M528 171 C 342 171, 342 41, 156 41" />
+    <path class="edge" d="M864 145 C 594 145, 594 93, 324 93" />
+    <path class="edge" d="M864 145 C 678 145, 678 119, 492 119" />
+    <path class="edge" d="M864 145 C 510 145, 510 41, 156 41" />
+    <path class="edge" d="M864 145 C 594 145, 594 145, 324 145" />
+    <path class="edge" d="M864 145 C 510 145, 510 93, 156 93" />
+    <path class="edge" d="M864 145 C 678 145, 678 171, 492 171" />
+    <path class="edge" d="M864 145 C 846 145, 846 197, 828 197" />
+    <path class="edge" d="M528 223 C 510 223, 510 119, 492 119" />
+    <path class="edge" d="M528 223 C 342 223, 342 41, 156 41" />
+    <path class="edge" d="M528 223 C 426 223, 426 145, 324 145" />
+    <path class="edge" d="M696 197 C 594 197, 594 119, 492 119" />
+    <path class="edge" d="M696 197 C 426 197, 426 41, 156 41" />
+    <path class="edge" d="M696 197 C 510 197, 510 145, 324 145" />
+    <path class="edge" d="M696 197 C 678 197, 678 171, 660 171" />
+    <path class="edge" d="M696 197 C 678 197, 678 223, 660 223" />
+    <a class="node" href="../crates/index.html#datapod" transform="translate(24,24)" data-layer="0">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">datapod</text>
+    </a>
+    <a class="node" href="../crates/index.html#keylock" transform="translate(24,76)" data-layer="0">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">keylock</text>
+    </a>
+    <a class="node" href="../crates/index.html#stateup" transform="translate(24,128)" data-layer="0">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">stateup</text>
+    </a>
+    <a class="node" href="../crates/index.html#tagdata" transform="translate(24,180)" data-layer="0">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">tagdata</text>
+    </a>
+    <a class="node" href="../crates/index.html#wirebit" transform="translate(24,232)" data-layer="0">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">wirebit</text>
+    </a>
+    <a class="node" href="../crates/index.html#authbox" transform="translate(192,76)" data-layer="1">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">authbox</text>
+    </a>
+    <a class="node" href="../crates/index.html#graphix" transform="translate(192,128)" data-layer="1">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">graphix</text>
+    </a>
+    <a class="node" href="../crates/index.html#ondrive" transform="translate(192,180)" data-layer="1">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">ondrive</text>
+    </a>
+    <a class="node" href="../crates/index.html#concord" transform="translate(360,102)" data-layer="2">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">concord</text>
+    </a>
+    <a class="node" href="../crates/index.html#peerbus" transform="translate(360,154)" data-layer="2">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">peerbus</text>
+    </a>
+    <a class="node" href="../crates/index.html#agentio" transform="translate(528,50)" data-layer="3">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">agentio</text>
+    </a>
+    <a class="node" href="../crates/index.html#machbus" transform="translate(528,102)" data-layer="3">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">machbus</text>
+    </a>
+    <a class="node" href="../crates/index.html#rastera" transform="translate(528,154)" data-layer="3">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">rastera</text>
+    </a>
+    <a class="node" href="../crates/index.html#vectory" transform="translate(528,206)" data-layer="3">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">vectory</text>
+    </a>
+    <a class="node" href="../crates/index.html#gearbox" transform="translate(696,76)" data-layer="4">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">gearbox</text>
+    </a>
+    <a class="node" href="../crates/index.html#maptrax" transform="translate(696,128)" data-layer="4">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">maptrax</text>
+    </a>
+    <a class="node" href="../crates/index.html#zoneout" transform="translate(696,180)" data-layer="4">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">zoneout</text>
+    </a>
+    <a class="node" href="../crates/index.html#syncbot" transform="translate(864,128)" data-layer="5">
+      <rect width="132" height="34" rx="4" />
+      <text x="66" y="22">syncbot</text>
+    </a>
+  </svg></div>
+      </div>
+
+      <h2 id="layers">By layer</h2>
+      <p>A crate's layer is one more than the deepest layer it depends on. Layer 0 depends on
+      nothing else in robolibs.</p>
+      <div class="tw"><table>
+        <thead><tr><th>layer</th><th>crates</th></tr></thead>
+        <tbody>
+          <tr><td>foundation</td><td><a href="../crates/index.html#datapod">datapod</a>, <a href="../crates/index.html#keylock">keylock</a>, <a href="../crates/index.html#stateup">stateup</a>, <a href="../crates/index.html#tagdata">tagdata</a>, <a href="../crates/index.html#wirebit">wirebit</a></td></tr>
+          <tr><td>layer 1</td><td><a href="../crates/index.html#authbox">authbox</a>, <a href="../crates/index.html#graphix">graphix</a>, <a href="../crates/index.html#ondrive">ondrive</a></td></tr>
+          <tr><td>layer 2</td><td><a href="../crates/index.html#concord">concord</a>, <a href="../crates/index.html#peerbus">peerbus</a></td></tr>
+          <tr><td>layer 3</td><td><a href="../crates/index.html#agentio">agentio</a>, <a href="../crates/index.html#machbus">machbus</a>, <a href="../crates/index.html#rastera">rastera</a>, <a href="../crates/index.html#vectory">vectory</a></td></tr>
+          <tr><td>layer 4</td><td><a href="../crates/index.html#gearbox">gearbox</a>, <a href="../crates/index.html#maptrax">maptrax</a>, <a href="../crates/index.html#zoneout">zoneout</a></td></tr>
+          <tr><td>layer 5</td><td><a href="../crates/index.html#syncbot">syncbot</a></td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="reading">Reading it</h2>
+      <ul class="plain">
+        <li><b>datapod</b> is the one nearly everything shares — POD types and containers that
+        cross process and language boundaries the same way everywhere.</li>
+        <li><b>keylock</b>, <b>stateup</b>, <b>tagdata</b> and <b>wirebit</b> are the other
+        foundation crates: each solves one problem (crypto primitives, state machines, an embedded
+        KV store, simulated hardware comms) with nothing here underneath it.</li>
+        <li><b>syncbot</b> sits at the top, seven crates deep — multi-robot scheduling is where
+        navigation, messaging, identity and geometry actually meet.</li>
+      </ul>
+    </main>
+  </div>
+  <footer class="foot">
+    <div class="in">
+      <span>eighteen crates, no shared code</span>
+      <span>git submodules, not a monorepo</span>
+      <a href="https://github.com/robolibs/.github">.github</a>
+      <a href="../architecture/index.html">the map</a>
+    </div>
+  </footer>
+</body>
+</html>
