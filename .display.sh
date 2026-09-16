@@ -4,14 +4,21 @@
 # between the 19 checkouts that all called it the same way through their .envrc.
 
 _robolibs_use_nvidia() {
-    # Real presence check first: a trailing `if` with no `else` always exits
-    # 0 in POSIX sh regardless of whether the condition matched, so this has
-    # to gate everything up front — otherwise every export below (including
+    # Presence check first: a trailing `if` with no `else` always exits 0 in
+    # POSIX sh regardless of whether the condition matched, so this has to
+    # gate everything up front — otherwise every export below (including
     # forcing the GLX/Vulkan vendor to nvidia) fires unconditionally even on
     # a machine with no NVIDIA GPU at all, which is a correctness bug, not
     # just a cosmetic one: it silently routes rendering through a vendor
     # library that doesn't exist there.
-    if [ ! -r /proc/driver/nvidia/version ]; then
+    #
+    # This checks the PCI bus, not `/proc/driver/nvidia/version` — that proc
+    # entry is tied to the kernel module actually being loaded right now,
+    # and has been observed to read as briefly absent even while
+    # `nvidia-smi`/`lspci` see the card fine moments before and after
+    # (module reload / on-demand-load race). The PCI device itself doesn't
+    # come and go, so it's the check that can't flap.
+    if ! lspci -d ::0300 2>/dev/null | grep -qi nvidia; then
         return 1
     fi
 
@@ -21,9 +28,13 @@ _robolibs_use_nvidia() {
     export __VK_LAYER_NV_optimus=NVIDIA_only
 
     # Snapshot the running NVIDIA driver version for flakes that need to read
-    # it through `builtins.getEnv` under `--impure`.
-    export NVIDIA_VERSION="$(head -n1 /proc/driver/nvidia/version \
-        | sed -nE 's/.*  ([0-9.]+)  Release.*/\1/p')"
+    # it through `builtins.getEnv` under `--impure`. Best-effort: the module
+    # may not be loaded at this exact instant even though the card is
+    # present, so a miss here isn't a reason to give up on NVIDIA entirely.
+    if [ -r /proc/driver/nvidia/version ]; then
+        export NVIDIA_VERSION="$(head -n1 /proc/driver/nvidia/version \
+            | sed -nE 's/.*  ([0-9.]+)  Release.*/\1/p')"
+    fi
 }
 
 _robolibs_use_display() {
