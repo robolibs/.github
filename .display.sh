@@ -4,6 +4,17 @@
 # between the 19 checkouts that all called it the same way through their .envrc.
 
 _robolibs_use_nvidia() {
+    # Real presence check first: a trailing `if` with no `else` always exits
+    # 0 in POSIX sh regardless of whether the condition matched, so this has
+    # to gate everything up front — otherwise every export below (including
+    # forcing the GLX/Vulkan vendor to nvidia) fires unconditionally even on
+    # a machine with no NVIDIA GPU at all, which is a correctness bug, not
+    # just a cosmetic one: it silently routes rendering through a vendor
+    # library that doesn't exist there.
+    if [ ! -r /proc/driver/nvidia/version ]; then
+        return 1
+    fi
+
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
     export __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -11,10 +22,8 @@ _robolibs_use_nvidia() {
 
     # Snapshot the running NVIDIA driver version for flakes that need to read
     # it through `builtins.getEnv` under `--impure`.
-    if [ -r /proc/driver/nvidia/version ]; then
-        export NVIDIA_VERSION="$(head -n1 /proc/driver/nvidia/version \
-            | sed -nE 's/.*  ([0-9.]+)  Release.*/\1/p')"
-    fi
+    export NVIDIA_VERSION="$(head -n1 /proc/driver/nvidia/version \
+        | sed -nE 's/.*  ([0-9.]+)  Release.*/\1/p')"
 }
 
 _robolibs_use_display() {
@@ -86,6 +95,12 @@ _robolibs_use_display() {
 
 if ! _robolibs_use_nvidia; then
     unset NVIDIA_VERSION
+    # `_robolibs_use_display` only fills RUN_WITH in if unset, so setting it
+    # here is what actually makes this fallback take effect — previously
+    # this branch only printed the message below and RUN_WITH stayed
+    # hardcoded to the NVIDIA wrapper further down, which is a slow,
+    # wrong (or outright broken) Vulkan path on a machine with no NVIDIA GPU.
+    export RUN_WITH="${RUN_WITH:-nixVulkanIntel}"
     echo "robolibs: NVIDIA driver not detected; using nixGLIntel/nixVulkanIntel fallback"
 fi
 _robolibs_use_display
