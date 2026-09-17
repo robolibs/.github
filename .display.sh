@@ -16,11 +16,29 @@ _robolibs_use_nvidia() {
     # entry is tied to the kernel module actually being loaded right now,
     # and has been observed to read as briefly absent even while
     # `nvidia-smi`/`lspci` see the card fine moments before and after
-    # (module reload / on-demand-load race). The PCI device itself doesn't
-    # come and go, so it's the check that can't flap.
-    if ! lspci -d ::0300 2>/dev/null | grep -qi nvidia; then
+    # (module reload / on-demand-load race).
+    #
+    # Even the PCI bus itself was then observed to briefly not list the card
+    # right after a build finished — PRIME/Optimus runtime power management
+    # on some laptops electrically powers the discrete GPU down while it's
+    # unused (a CPU-only build never touches it) and it takes a moment to
+    # come back once something asks for it. So this retries a few times over
+    # ~2s before believing "no NVIDIA" — cheap on a machine that truly has
+    # none (every retry misses instantly), but saves a real GPU from being
+    # mistaken for absent during its own wake-up.
+    _found=0
+    for _attempt in 1 2 3 4 5; do
+        if lspci -d ::0300 2>/dev/null | grep -qi nvidia; then
+            _found=1
+            break
+        fi
+        sleep 0.4
+    done
+    if [ "$_found" != 1 ]; then
+        unset _found _attempt
         return 1
     fi
+    unset _found _attempt
 
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
